@@ -20,6 +20,8 @@ const skills = [
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
 ---
 
 <html lang="ru">
@@ -29,31 +31,44 @@ const goal = 3;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars="{{skillColor}}">
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .skill {
+        color: var(--skillColor);
+      }
+    </style>
   </head>
   <body>
-    <a href="/">Главная</a>
-    <a href="/about/">О сайте</a>
-    <h1>{pageTitle}</h1>
-
-    <p>Несколько фактов обо мне:</p>
-    <ul>
-      <li>Меня зовут {identity.firstName}.</li>
-      <li>
-        Моя страна — {identity.country}, а род занятий — {identity.occupation}.
-      </li>
-      {
-        identity.hobbies.length >= 2 && (
-          <li>
-            Два моих увлечения: {identity.hobbies[0]} и {identity.hobbies[1]}
-          </li>
-        )
-      }
-    </ul>
-    <p>Мои навыки:</p>
-    <ul>
-      {skills.map((skill) => <li>{skill}</li>)}
-    </ul>
-
-    {happy && <p>Я рад изучать Астро!</p>}
+    <div class="page">
+      <a href="/">Главная</a>
+      <a href="/about/">О сайте</a>
+      <h1>{pageTitle}</h1>
+      <p>Несколько фактов обо мне:</p>
+      <ul>
+        <li>Меня зовут {identity.firstName}.</li>
+        <li>
+          Моя страна — {identity.country}, а род занятий — {identity.occupation}.
+        </li>
+        {
+          identity.hobbies.length >= 2 && (
+            <li>
+              Два моих увлечения: {identity.hobbies[0]} и {identity.hobbies[1]}
+            </li>
+          )
+        }
+      </ul>
+      <p>Мои навыки:</p>
+      <ul>
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
+      </ul>
+      {happy && <p>Я рад изучать Астро!</p>}
+    </div>
   </body>
 </html>
