@@ -1,18 +1,8 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+const pageTitle = 'Главная';
 ---
 
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Астро</title>
-  </head>
-  <body>
-    <a href="/">Главная</a>
-    <a href="/about/">О сайте</a>
-    <h1>Астро</h1>
-  </body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <h2>Подзаголовок</h2>
+</BaseLayout>
