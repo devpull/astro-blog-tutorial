@@ -1,0 +1,17 @@
+---
+const platform = "github";
+const username = "devpull";
+import Social from "./Social.astro";
+---
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
+
+<footer>
+  Узнайте больше о моих проектах на <Social platform={platform} username={username} />
+</footer>
