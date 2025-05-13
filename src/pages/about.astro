@@ -31,7 +31,7 @@ const skillColor = "navy";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <style define:vars="{{skillColor}}">
+    <style define:vars={{ textColor: skillColor }}>
       h1 {
         color: purple;
         font-size: 4rem;
@@ -41,7 +41,8 @@ const skillColor = "navy";
         margin: 0 auto;
       }
       .skill {
-        color: var(--skillColor);
+        color: var(--textColor);
+        font-weight: bold;
       }
     </style>
   </head>
